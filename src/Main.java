@@ -40,7 +40,7 @@ public class Main {
         short shrt02B = -159;
         short shrt02C = 27897;
         short shrt02D = 67;
-        System.out.println(flt02A + " " + str02A + " " + intg02 + " " + flt02B + " " + str02B  +
+        System.out.println(flt02A + " " + str02A + " " + intg02 + " " + flt02B + " " + str02B +
                 " " + flt02Bs + " " + shrt02A + " " + shrt02B + " " + shrt02C + " " + shrt02D);
     /*
     Задача 3
@@ -56,7 +56,7 @@ public class Main {
         int class02 = 27;
         int class03 = 30;
         int totalSheets = 480;
-        System.out.println("На каждого ученика рассчитано по " + totalSheets/(class01 + class02 + class03) +
+        System.out.println("На каждого ученика рассчитано по " + totalSheets / (class01 + class02 + class03) +
                 " лист(a, ов) бумаги");
 
     /*
@@ -78,9 +78,9 @@ public class Main {
         но время не обязательно кратно минутам по факту, нам нужно узнать, сколько времени понадобится
         на изготовление одной бутылки, то есть сколько времени на бутылку, но понадобится округление.
         UPD: нашёл https://sky.pro/media/preobrazovanie-tipov-s-float-v-int-v-java/ */
-        System.out.println("За 20 минут машина произвела " + Math.round(20.0/minutesForBottleF)+ " шт. бутылок");
-        System.out.println("За сутки машина произвела " + Math.round((24*60)/minutesForBottleF)+ " шт. бутылок");
-        System.out.println("За три дня машина произвела " + Math.round((24*60*3)/minutesForBottleF)+ " шт. бутылок");
+        System.out.println("За 20 минут машина произвела " + Math.round(20.0 / minutesForBottleF) + " шт. бутылок");
+        System.out.println("За сутки машина произвела " + Math.round((24 * 60) / minutesForBottleF) + " шт. бутылок");
+        System.out.println("За три дня машина произвела " + Math.round((24 * 60 * 3) / minutesForBottleF) + " шт. бутылок");
         //https://sky.pro/wiki/java/poluchenie-kolichestva-dney-v-mesyatse-s-java-reshenie
         Calendar daysPastMonth = Calendar.getInstance();
         daysPastMonth.add(Calendar.MONTH, -1); /* хто_знает чего это такое, пока что, но работает */
@@ -88,7 +88,7 @@ public class Main {
 // берём прошлый месяц, только он полностью завершён
         /* int daysInCurrentMonth = YearMonth. оказалось дольше разбираться */
         System.out.println("За прошлый месяц машина произвела " +
-                Math.round((24*60*(daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH)))/minutesForBottleF) +
+                Math.round((24 * 60 * (daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH))) / minutesForBottleF) +
                 " шт. бутылок");
 
         /*
@@ -103,7 +103,7 @@ public class Main {
         int totalCansCount = 120;
         float whiteCansNeededPerRoom = 2.0F;
         float brownCansNeededPerRoom = 4.0F;
-        int totalRoomsCount = Math.round(totalCansCount/(whiteCansNeededPerRoom + brownCansNeededPerRoom));
+        int totalRoomsCount = Math.round(totalCansCount / (whiteCansNeededPerRoom + brownCansNeededPerRoom));
         System.out.println("В школе, где " + totalRoomsCount + " класс(а,ов), нужно " +
                 Math.ceil(totalRoomsCount * whiteCansNeededPerRoom) + " банок белой краски и " +
                 Math.ceil(totalRoomsCount * brownCansNeededPerRoom) + " банок коричневой краски");
@@ -144,7 +144,7 @@ public class Main {
                 "дн., а при максимальной скорости по " +
                 weightLossSpeedMax + " гр. в день минимальный срок составит - " + weightLossNeeded * 1000 / weightLossSpeedMax +
                 " дн. При этом среднее арифметическое сроков похудения составит " +
-                (weightLossNeeded * 1000 / ((weightLossSpeedMin + weightLossSpeedMax) / 2) +  " дн."));
+                (weightLossNeeded * 1000 / ((weightLossSpeedMin + weightLossSpeedMax) / 2) + " дн."));
 
         /*Задача 8
         Представим, что мы работаем в большой компании, штат которой состоит из нескольких сотен сотрудников. В компании
@@ -173,12 +173,12 @@ public class Main {
         float employerFutureSalary;
         employerFutureSalary = (float) Math.pow(employerCurrentSalary * (1 + (empIndex / 100F)), employerYears);
         System.out.println(employerName + " теперь получает " + employerFutureSalary + " руб. Годовой доход вырос на " +
-                (employerFutureSalary-employerCurrentSalary) * 12 + " руб.");
+                (employerFutureSalary - employerCurrentSalary) * 12 + " руб.");
         employerFutureSalary = (float) Math.pow(employer2CurrentSalary * (1 + (empIndex / 100F)), employerYears);
         System.out.println(employer2Name + " теперь получает " + employerFutureSalary + " руб. Годовой доход вырос на " +
-                (employerFutureSalary-employer2CurrentSalary) * 12 + " руб.");
+                (employerFutureSalary - employer2CurrentSalary) * 12 + " руб.");
         employerFutureSalary = (float) Math.pow(employer3CurrentSalary * (1 + (empIndex / 100F)), employerYears);
         System.out.println(employer3Name + " теперь получает " + employerFutureSalary + " руб. Годовой доход вырос на " +
-                (employerFutureSalary-employer3CurrentSalary) * 12 + " руб.");
+                (employerFutureSalary - employer3CurrentSalary) * 12 + " руб.");
     }
 }
