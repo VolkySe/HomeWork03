@@ -57,7 +57,7 @@ public class Main {
         int class03 = 30;
         int totalSheets = 480;
         System.out.println("На каждого ученика рассчитано по " + totalSheets / (class01 + class02 + class03) +
-                " лист(a, ов) бумаги");
+                " целых лист(a, ов) бумаги");
 
     /*
     Задача 4
@@ -72,23 +72,20 @@ public class Main {
     Для объявления переменных не используйте тип var.
      */
         System.out.println("Задача 4:");
-        float controlTime = 2.0F; // used decimal, non mm:ss format
-        int controlBottles = 1;
-        float minutesForBottleF = (controlTime / controlBottles); /* Машина производит целое количество бутылок,
-        но время не обязательно кратно минутам по факту, нам нужно узнать, сколько времени понадобится
-        на изготовление одной бутылки, то есть сколько времени на бутылку, но понадобится округление.
-        UPD: нашёл https://sky.pro/media/preobrazovanie-tipov-s-float-v-int-v-java/ */
-        System.out.println("За 20 минут машина произвела " + Math.round(20.0 / minutesForBottleF) + " шт. бутылок");
-        System.out.println("За сутки машина произвела " + Math.round((24 * 60) / minutesForBottleF) + " шт. бутылок");
-        System.out.println("За три дня машина произвела " + Math.round((24 * 60 * 3) / minutesForBottleF) + " шт. бутылок");
+        float controlTime = 2.0F; // использовал дробное время, контрольный замер времени
+        int controlBottles = 16; // целое количество единиц продукции, контрольный замер количества
+        int bottlesPerMin = (int) (controlBottles/controlTime);
+
+        System.out.println("За 20 минут машина произвела " + bottlesPerMin * 20 + " шт. бутылок");
+        System.out.println("За сутки машина произвела " + bottlesPerMin * 24 * 60 + " шт. бутылок");
+        System.out.println("За три дня машина произвела " + bottlesPerMin * 24 * 60 * 3 + " шт. бутылок");
         //https://sky.pro/wiki/java/poluchenie-kolichestva-dney-v-mesyatse-s-java-reshenie
         Calendar daysPastMonth = Calendar.getInstance();
         daysPastMonth.add(Calendar.MONTH, -1); /* хто_знает чего это такое, пока что, но работает */
-//        System.out.println(daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH));
-// берём прошлый месяц, только он полностью завершён
-        /* int daysInCurrentMonth = YearMonth. оказалось дольше разбираться */
+        //        System.out.println(daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH));
+        // берём прошлый месяц, только он полностью завершён
         System.out.println("За прошлый месяц машина произвела " +
-                Math.round((24 * 60 * (daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH))) / minutesForBottleF) +
+                (24 * 60 * (daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH))) * bottlesPerMin +
                 " шт. бутылок");
 
         /*
@@ -168,16 +165,14 @@ public class Main {
  */
         float employerCurrentSalary = 67760F, employer2CurrentSalary = 83690F, employer3CurrentSalary = 76230F; //зарплата с копейками
         String employerName = "Маша", employer2Name = "Денис", employer3Name = "Кристина";
-        int employerYears = 1;
-        float empIndex = 10F;
         float employerFutureSalary;
-        employerFutureSalary = (float) Math.pow(employerCurrentSalary * (1 + (empIndex / 100F)), employerYears);
+        employerFutureSalary = employerCurrentSalary * 1.1F;
         System.out.println(employerName + " теперь получает " + employerFutureSalary + " руб. Годовой доход вырос на " +
                 (employerFutureSalary - employerCurrentSalary) * 12 + " руб.");
-        employerFutureSalary = (float) Math.pow(employer2CurrentSalary * (1 + (empIndex / 100F)), employerYears);
+        employerFutureSalary = employer2CurrentSalary * 1.1F;
         System.out.println(employer2Name + " теперь получает " + employerFutureSalary + " руб. Годовой доход вырос на " +
                 (employerFutureSalary - employer2CurrentSalary) * 12 + " руб.");
-        employerFutureSalary = (float) Math.pow(employer3CurrentSalary * (1 + (empIndex / 100F)), employerYears);
+        employerFutureSalary = employer3CurrentSalary * 1.1F;
         System.out.println(employer3Name + " теперь получает " + employerFutureSalary + " руб. Годовой доход вырос на " +
                 (employerFutureSalary - employer3CurrentSalary) * 12 + " руб.");
     }
