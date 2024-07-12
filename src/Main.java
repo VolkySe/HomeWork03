@@ -86,7 +86,7 @@ public class Main {
         // берём прошлый месяц, только он полностью завершён
         System.out.println("За прошлый месяц машина произвела " +
                 (24 * 60 * (daysPastMonth.getActualMaximum(Calendar.DAY_OF_MONTH))) * bottlesPerMin +
-                " шт. бутылок");
+                " шт. бутылок ");
 
         /*
         Задача 5
